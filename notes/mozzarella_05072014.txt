@@ -1,0 +1,10 @@
+heating milk - before (ph: 7.2, t: 62F) after (ph: 6.54, t: 95F)
+add yogurt culture - (ph: 4.33, v: 1/2cup)
+innoculate milk - before (ph: 6.25, t: 96F) after 1:10 (ph: 6.15, t: 98F)
+add calcium chloride - before (ph: 6.15) after 10 (ph: 6.06)
+add rennet solution - at (ph: 6.06 )
+cogulation - before (ph: 6.06, t: 98F) 1:00
+cut curds - at (ph: 5.84, t: 97F) 0:30 at (ph: 5.77, t: 97F) 0:30 at (ph: -, t:105F)
+drain curds - at (ph: 5.54, t: 105F) 0:15 at (ph: 5.34, t: 80F) 0:15
+strech curds - xx
+brine curds at (t: 45F) 2:00

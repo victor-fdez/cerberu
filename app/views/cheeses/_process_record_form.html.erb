@@ -1,0 +1,38 @@
+﻿<div class="field">
+	<%= f.hidden_field :id %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="input-group">
+				<%= f.fields_for :process_type do |builder| %>
+					<%= builder.hidden_field :id %>
+					<%= builder.text_field :name, :class => "form-control" %>
+				<% end %>
+				<%= button_to_remove_process_record_field(f) %>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="form-group" style="margin-bottom: 0px">
+				<%= f.label :notes %>
+				<%= f.text_area :notes, :class => "form-control" %>
+			</div>
+		</div>
+		<div class="panel-body">
+			<%= f.label :time_measures %>
+			<table  class="table">
+				<thead>
+					<tr>
+						<th>Time (min)</th>
+						<th>Temperature (F)</th>
+						<th>PH</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%= f.fields_for :time_measures do |builder| %>
+						<%= render :partial => "time_measure_form", :locals => {:f => builder} %>
+					<% end %>
+				</tbody>
+			</table>
+			<%=button_to_add_field("Add Time Measure", f, :time_measures, "add_field_time_measure")%>
+		</div>
+	</div>
+</div>

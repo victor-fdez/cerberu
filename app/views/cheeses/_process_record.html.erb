@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-11 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>
+					<%= process_record.process_type.name %>
+				</h4>
+			</div>
+			<div class="panel-body">
+				<h5>notes</h5>
+				<p>
+					<%= process_record.notes %>
+				</p>
+			</div>
+			<div class="panel-body">
+				<h5>time measures</p>
+			<table cellspacing="0" class="table">
+				<thead>
+					<tr>
+						<td>Time (min)</td>
+						<td>Temperature (F)</td>
+						<td>PH</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% process_record.time_measures.each do |time_measure| %>
+						<tr>
+							<td><%= time_measure.time %></td>
+							<td><%= time_measure.temp %></td>
+							<td><%= time_measure.ph %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
+

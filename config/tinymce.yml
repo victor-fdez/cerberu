@@ -1,0 +1,13 @@
+default:
+  menubar: true
+  content_css: "/assets/bootstrap-custom.css"
+  plugins:
+    - table
+    - fullscreen
+
+alternate:
+  menubar: false
+  toolbar: false 
+  statusbar: false
+  content_css: "/assets/bootstrap-custom.css"
+  

@@ -13,4 +13,29 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+// Loads all Bootstrap javascripts
+//= require bootstrap
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown
+//= require tinymce
+//  require_tree .
+function remove_field(object){
+	$(object).parent().prev("input[type=hidden]")[0].value = 1;
+	$(object).closest(".field").hide();
+}
+function add_field_time_measure(object, association, content){
+	var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+	content = content.replace(regexp, new_id);
+	var objectAfter = $(object).prev("table").find("tbody > tr.field").last();
+	$(content).insertAfter(objectAfter);
+}
+function add_field_process_record(object, association, content){
+	var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+	content = content.replace(regexp, new_id);
+	var objectAfter = $(object).prev("div.field");
+	$(content).insertAfter(objectAfter);
+}
+

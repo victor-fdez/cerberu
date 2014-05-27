@@ -1,0 +1,42 @@
+<%= form_for @cheese, :html => { :role => "form", :class => nil} do |f| %>
+	<% if @cheese.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@cheese.errors.count, "error") %> prohibited this cheese from being saved:</h2>
+
+			<ul>
+			<% @cheese.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, :class => "form-control" %>
+
+	</div>
+	<div class="form-group">
+		<%= f.label :about %><br>
+		<%= f.text_area :about, :class => "form-control" %>
+		<% if false %>
+		<%= f.text_area :about, :class => "tinymce" %>
+		<%= tinymce %>
+		<% end %>
+	</div>
+	<div class="form-process-record">
+		<h3>Process Records</h3>
+		<div class="col-md-11 col-md-offset-1">
+			<div class="fields">
+				<%= f.fields_for :process_records do |builder| %>
+					<%= render :partial => "process_record_form", :locals => {:f => builder} %>
+				<% end %>
+				<% if true %>
+					<%= button_to_add_field_process_record("Add Process Record", f, :process_records, "add_field_process_record") %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="actions">
+		<%= f.submit :class => "btn btn-default" %>
+	</div>
+<% end %>

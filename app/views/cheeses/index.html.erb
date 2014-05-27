@@ -1,0 +1,27 @@
+<h1>Listing cheeses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>About</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cheeses.each do |cheese| %>
+      <tr>
+        <td><%= cheese.id %></td>
+        <td><%= cheese.about %></td>
+        <td><%= link_to 'Show', cheese %></td>
+        <td><%= link_to 'Edit', edit_cheese_path(cheese) %></td>
+        <td><%= link_to 'Destroy', cheese, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cheese', new_cheese_path %>
