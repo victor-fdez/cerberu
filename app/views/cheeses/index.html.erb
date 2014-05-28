@@ -1,27 +1,40 @@
-<h1>Listing cheeses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>About</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cheeses.each do |cheese| %>
-      <tr>
-        <td><%= cheese.id %></td>
-        <td><%= cheese.about %></td>
-        <td><%= link_to 'Show', cheese %></td>
-        <td><%= link_to 'Edit', edit_cheese_path(cheese) %></td>
-        <td><%= link_to 'Destroy', cheese, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<h1>Cheeses</h1>
 <%= link_to 'New Cheese', new_cheese_path %>
+<% @cheeses.each do |cheese| %>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<span class="h3" style="margin-top: 0px"><%= cheese.name %></span>
+					<div class="btn-group pull-right" >
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							Action <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><%= link_to 'Show', cheese %></li>
+							<li><%= link_to 'Edit', edit_cheese_path(cheese) %></li>
+							<li><%= link_to 'Destroy', cheese, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+						</ul>
+					</div>
+					<div class="clearfix" style="margin-bottom: 10px"></div>
+					<p><%= cheese.about %></p>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<h4>pictures</h4>
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<h4>process records</h4>
+							<ul class="list-group" style="margin-bottom: 0px">
+								<% cheese.process_records.each do |process_record| %>
+									<%= render :partial => "process_record_index", :locals => { :process_record => process_record } %>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+

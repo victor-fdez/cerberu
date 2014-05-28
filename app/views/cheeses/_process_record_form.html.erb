@@ -7,7 +7,7 @@
 					<%= builder.hidden_field :id %>
 					<%= builder.text_field :name, :class => "form-control" %>
 				<% end %>
-				<%= button_to_remove_process_record_field(f) %>
+				<%= button_to_remove_process_record(f) %>
 			</div>
 		</div>
 		<div class="panel-body">
@@ -32,7 +32,7 @@
 					<% end %>
 				</tbody>
 			</table>
-			<%=button_to_add_field("Add Time Measure", f, :time_measures, "add_field_time_measure")%>
+			<%=button_to_add_field_time_measure("Add Time Measure", f, :time_measures, "add_field_time_measure")%>
 		</div>
 	</div>
 </div>

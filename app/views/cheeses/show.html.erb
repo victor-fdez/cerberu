@@ -2,6 +2,8 @@
 	<h1><%= @cheese.name %></h1>
 </div>
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_cheese_path(@cheese) %> |
+<%= link_to 'Back', cheeses_path %>
 	<div class="row">
 		<div class="col-md-12">
 			<h4>about</h4>
@@ -28,7 +30,5 @@
 	  </div>
 	</div>
 
-<%= link_to 'Edit', edit_cheese_path(@cheese) %> |
-<%= link_to 'Back', cheeses_path %>
 
 	
