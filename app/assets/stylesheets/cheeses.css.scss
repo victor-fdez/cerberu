@@ -1,3 +1,18 @@
 // Place all the styles related to the Cheeses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ui-autocomplete {
+	width: 1px;
+}
+
+.ui-menu {
+	padding: 4px;
+	margin: 0;
+}
+
+.ui-menu .ui-menu-item {
+	padding: 10;
+	margin: 10;
+	list-style-type: none;
+}

@@ -1,5 +1,23 @@
 <h1>Cheeses</h1>
-<%= link_to 'New Cheese', new_cheese_path %>
+<div class="row">
+	<div class="col-md-12" style="margin-bottom: 15px">
+		<%= link_to 'New Cheese', new_cheese_path, :type => "button", :class => "btn btn-default" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12" style="margin-bottom: 15px">
+		<%= form_tag cheeses_path, method: :get do %>
+			<div class="input-group">
+				<%= text_field_tag "search", nil, :class => "form-control" %>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
+	<% end %>
+</div>
+</div>
 <% @cheeses.each do |cheese| %>
 	<div class="row">
 		<div class="col-md-12">

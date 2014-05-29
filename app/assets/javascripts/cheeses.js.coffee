@@ -27,3 +27,22 @@ Cheeses.add_field_process_record = (object, association, content) ->
 	else
 		objectAfter = objectAfter[0]
 		$(content).insertAfter(objectAfter)
+
+$(document).ready ->
+	$("input#search").autocomplete
+		source: (request, response) ->
+			$.ajax
+				url: "/cheeses/search"
+				type: "get"
+				data:
+					search: $("input#search").val()
+				dataType: "json"
+				success: (data) ->
+					response $.map data, (cheese) ->
+						return cheese.name
+		messages: 
+        noResults: ''
+        results: ->
+						
+						
+

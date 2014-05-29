@@ -47,3 +47,12 @@ gem 'bootstrap-sass'
 gem 'debugger'
 gem 'tinymce-rails', '~> 4.0.19'
 #gem 'bootstrap-wysihtml5-rails', '~> 0.3.1.24'
+gem 'sunspot_rails'
+
+group :development do
+	gem 'sunspot_solr'
+end
+
+gem 'jquery-ui-rails', '~> 4.2.1'
+gem "paperclip", "~> 4.1"
+

@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  resources :cheeses
+
+	root "main#index"
+
+  get 'main/index'
+  get 'main/about'
+  get 'main/projects'
+  get 'main/objects'
+
+  resources :cheeses do
+    collection do
+      get 'search'
+    end
+	end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

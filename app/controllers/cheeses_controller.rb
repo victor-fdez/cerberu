@@ -5,15 +5,37 @@ class CheesesController < ApplicationController
   # GET /cheeses
   # GET /cheeses.json
   def index
-    @cheeses = Cheese.all
+		if search_cheese_params.has_key?(:search)
+			search = search_cheese_params[:search]
+			@cheeses = Cheese.where("name like ?", "%#{search}%")
+		else
+			@cheeses = Cheese.all
+		end
   end
 
   # GET /cheeses/1
   # GET /cheeses/1.json
   def show
-		p self.instance_variables
-		p local_variables
   end
+
+	# GET /cheeses/search
+	def search
+		search = search_cheese_params[:search]
+		@cheeses = Cheese.where("name like ?", "%#{search}%")
+=begin
+		@search = Cheese.search do
+				fulltext "ch" do
+					fields(:name)
+				end
+			end
+		p @search.total
+		@cheeses = @search.results
+=end
+		respond_to do |format|
+			format.json { render json: @cheeses }
+			format.html { render "index" }
+		end
+	end
 
   # GET /cheeses/new
   def new
@@ -34,8 +56,6 @@ class CheesesController < ApplicationController
   # POST /cheeses
   # POST /cheeses.json
   def create
-		p "cheese parameters"
-		p cheese_params
     @cheese = Cheese.new(cheese_params)
 		if @cheese.valid?
 			respond_to do |format|
@@ -97,4 +117,8 @@ class CheesesController < ApplicationController
 																		]
 																		)
     end
+
+		def search_cheese_params
+			params.permit(:search)
+		end
 end
